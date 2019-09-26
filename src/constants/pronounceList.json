@@ -1,0 +1,42 @@
+[
+    {
+        "writing": "あ",
+        "pronunciation": "a",
+        "type": "平假名"
+    },
+    {
+        "writing": "か",
+        "pronunciation": "ka",
+        "type": "平假名"
+    },
+    {
+        "writing": "さ",
+        "pronunciation": "sa",
+        "type": "平假名"
+    },
+    {
+        "writing": "た",
+        "pronunciation": "ta",
+        "type": "平假名"
+    },
+    {
+        "writing": "ア",
+        "pronunciation": "a",
+        "type": "片假名"
+    },
+    {
+        "writing": "カ",
+        "pronunciation": "ka",
+        "type": "片假名"
+    },
+    {
+        "writing": "サ",
+        "pronunciation": "sa",
+        "type": "片假名"
+    },
+    {
+        "writing": "タ",
+        "pronunciation": "ta",
+        "type": "片假名"
+    }
+]
