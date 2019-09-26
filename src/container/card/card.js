@@ -8,19 +8,31 @@ class CardContainer extends Component {
     constructor() {
         super();
         this.state = {
-            cardInfo: {
-                "writing": "ホ",
-                "pronunciation": "jing",
-                "type": "轻音"
-            }
+            cardInfo: { }
         };
+
+        this.handleToggleCard = this.handleToggleCard.bind(this);
     }
     componentDidMount() {
-        console.log(pronounceList);
+        this.handleToggleCard();
+    }
+    _getRandomPronounceInfo() {
+        const len = pronounceList.length;
+        const i = Math.random() * len;
+        return pronounceList[parseInt(i)];
+    }
+    handleToggleCard() {
+        const randomPronounceInfo = this._getRandomPronounceInfo();
+        this.setState({
+            cardInfo: randomPronounceInfo
+        });
     }
     render() {
         return (
-            <div className="card-container">
+            <div
+                className="card-container"
+                onClick={ this.handleToggleCard }
+            >
                 <Card cardInfo={ this.state.cardInfo}>
                 </Card>
             </div>

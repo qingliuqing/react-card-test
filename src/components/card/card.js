@@ -9,9 +9,9 @@ class Card extends Component {
 
     static defaultProps = {
         cardInfo: {
-            "writing": "ホ",
-            "pronunciation": "jing",
-            "type": "轻音"
+            "writing": "",
+            "pronunciation": "",
+            "type": ""
         }
     }
 
@@ -26,13 +26,28 @@ class Card extends Component {
         this.handleClickTypeMask = this.handleClickTypeMask.bind(this);
     }
 
-    handleClickPronunciationMask() {
+    // componentWillUpdate() {
+    //     console.log('WillUpdate');
+    // }
+    // componentDidUpdate() {
+    //     console.log('didUpdate');
+    //     // this.setState({
+    //     //     pronunciationMaskShow: true,
+    //     //     typeMaskShow: true,
+    //     // });
+    //     this.setState((prevState) => ({
+    //         pronunciationMaskShow: !prevState.pronunciationMaskShow
+    //     }));
+    // }
+    handleClickPronunciationMask(e) {
+        e.stopPropagation();
         this.setState((prevState) => ({
             pronunciationMaskShow: !prevState.pronunciationMaskShow
         }));
     }
 
-    handleClickTypeMask() {
+    handleClickTypeMask(e) {
+        e.stopPropagation();
         this.setState((prevState) => ({
             typeMaskShow: !prevState.typeMaskShow
         }));
