@@ -26,19 +26,13 @@ class Card extends Component {
         this.handleClickTypeMask = this.handleClickTypeMask.bind(this);
     }
 
-    // componentWillUpdate() {
-    //     console.log('WillUpdate');
-    // }
-    // componentDidUpdate() {
-    //     console.log('didUpdate');
-    //     // this.setState({
-    //     //     pronunciationMaskShow: true,
-    //     //     typeMaskShow: true,
-    //     // });
-    //     this.setState((prevState) => ({
-    //         pronunciationMaskShow: !prevState.pronunciationMaskShow
-    //     }));
-    // }
+    UNSAFE_componentWillReceiveProps() {
+        this.setState({
+            pronunciationMaskShow: true,
+            typeMaskShow: true,
+        });
+    }
+
     handleClickPronunciationMask(e) {
         e.stopPropagation();
         this.setState((prevState) => ({
