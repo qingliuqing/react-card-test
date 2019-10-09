@@ -24,6 +24,7 @@ class Card extends Component {
 
         this.handleClickPronunciationMask = this.handleClickPronunciationMask.bind(this);
         this.handleClickTypeMask = this.handleClickTypeMask.bind(this);
+        this.handleTouchEndCapture = this.handleTouchEndCapture.bind(this);
     }
 
     UNSAFE_componentWillReceiveProps() {
@@ -45,6 +46,11 @@ class Card extends Component {
         this.setState((prevState) => ({
             typeMaskShow: !prevState.typeMaskShow
         }));
+        console.log('mask click');
+    }
+
+    handleTouchEndCapture(e) {
+        e.stopPropagation();
     }
 
     render() {
@@ -56,6 +62,7 @@ class Card extends Component {
                     { pronunciationMaskShow ? 
                         (<span
                             className="card-pronunciation-txt-mask"
+                            onTouchEndCapture={ this.handleTouchEndCapture }
                             onClick={ this.handleClickPronunciationMask }
                         ></span>) : 
                         (<span className="card-pronunciation-txt">
@@ -72,6 +79,7 @@ class Card extends Component {
                     { typeMaskShow ? 
                         (<span
                             className="card-type-txt-mask"
+                            onTouchEndCapture={ this.handleTouchEndCapture }
                             onClick={ this.handleClickTypeMask }
                         ></span>) : 
                         (<span className="card-type-txt">

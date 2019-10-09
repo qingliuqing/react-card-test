@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Card from '../../components/card/card';
+import Card from '../../components/card/card.jsx';
 import pronounceList from '../../constants/pronounceList.json';
 import './card.scss';
 
@@ -12,6 +12,8 @@ class CardContainer extends Component {
         };
 
         this.handleToggleCard = this.handleToggleCard.bind(this);
+        this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        this.handleTouchMove = this.handleTouchMove.bind(this);
     }
     componentDidMount() {
         this.handleToggleCard();
@@ -27,14 +29,33 @@ class CardContainer extends Component {
             cardInfo: randomPronounceInfo
         });
     }
+    handleTouchStart(e) {
+        // e.preventDefault();
+        console.log('-----onTouchStart-----');
+    }
+    handleTouchMove() {
+        console.log('-----onTouchMove-----');
+        // this.handleToggleCard();
+    }
+    handleTouchEnd(e) {
+        // console.log('-----onTouchEnd-----');
+        // console.log(e);
+        e.preventDefault();
+        this.handleToggleCard();
+    }
     render() {
         return (
             <div
                 className="card-container"
-                onClick={ this.handleToggleCard }
+                // onClick={ this.handleToggleCard }
+                // onTouchStart={ this.handleTouchStart }
+                // onTouchMove={ this.handleTouchMove }
+                onTouchEnd={ this.handleTouchEnd }
             >
-                <Card cardInfo={ this.state.cardInfo}>
-                </Card>
+                <div className="solo-card-container">
+                    <Card cardInfo={ this.state.cardInfo}>
+                    </Card>
+                </div>
             </div>
         )
     }
