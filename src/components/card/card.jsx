@@ -62,7 +62,7 @@ class Card extends Component {
                     { pronunciationMaskShow ? 
                         (<span
                             className="card-pronunciation-txt-mask"
-                            onTouchEndCapture={ this.handleTouchEndCapture.bind(this) }
+                            // onTouchEndCapture={ this.handleTouchEndCapture.bind(this) }
                             onClick={ this.handleClickPronunciationMask.bind(this) }
                         ></span>) : 
                         (<span className="card-pronunciation-txt">
@@ -79,7 +79,7 @@ class Card extends Component {
                     { typeMaskShow ? 
                         (<span
                             className="card-type-txt-mask"
-                            onTouchEndCapture={ this.handleTouchEndCapture.bind(this) }
+                            // onTouchEndCapture={ this.handleTouchEndCapture.bind(this) }
                             onClick={ this.handleClickTypeMask.bind(this) }
                         ></span>) : 
                         (<span className="card-type-txt">

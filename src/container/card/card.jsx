@@ -53,10 +53,10 @@ class CardContainer extends Component {
         return (
             <div
                 className="card-container"
-                // onClick={ this.handleToggleCard.bind(this) }
+                onClick={ this.handleToggleCard.bind(this) }
                 // onTouchStart={ this.handleTouchStart.bind(this) }
                 // onTouchMove={ this.handleTouchMove.bind(this) }
-                onTouchEnd={ this.handleTouchEnd.bind(this) }
+                // onTouchEnd={ this.handleTouchEnd.bind(this) }
             >
                 <div className="solo-card-container">
                     <Card cardInfo={ this.state.cardInfo}>
