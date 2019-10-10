@@ -11,20 +11,26 @@ class CardContainer extends Component {
             cardInfo: { }
         };
 
-        this.handleToggleCard = this.handleToggleCard.bind(this);
-        this.handleTouchEnd = this.handleTouchEnd.bind(this);
-        this.handleTouchMove = this.handleTouchMove.bind(this);
+        // this.handleToggleCard = this.handleToggleCard.bind(this);
+        // this.handleTouchEnd = this.handleTouchEnd.bind(this);
+        // this.handleTouchMove = this.handleTouchMove.bind(this);
     }
     componentDidMount() {
-        this.handleToggleCard();
+       let id = this.props.match.params.id;
+        this.handleToggleCard(id);
     }
     _getRandomPronounceInfo() {
         const len = pronounceList.length;
         const i = Math.random() * len;
         return pronounceList[parseInt(i)];
     }
-    handleToggleCard() {
-        const randomPronounceInfo = this._getRandomPronounceInfo();
+    handleToggleCard(id) {
+        let randomPronounceInfo;
+        if (id && typeof(id) === 'string') {
+            randomPronounceInfo = pronounceList[id];
+        } else {
+            randomPronounceInfo = this._getRandomPronounceInfo();
+        }
         this.setState({
             cardInfo: randomPronounceInfo
         });
@@ -40,17 +46,17 @@ class CardContainer extends Component {
     handleTouchEnd(e) {
         // console.log('-----onTouchEnd-----');
         // console.log(e);
-        e.preventDefault();
+        // e.preventDefault();
         this.handleToggleCard();
     }
     render() {
         return (
             <div
                 className="card-container"
-                // onClick={ this.handleToggleCard }
-                // onTouchStart={ this.handleTouchStart }
-                // onTouchMove={ this.handleTouchMove }
-                onTouchEnd={ this.handleTouchEnd }
+                // onClick={ this.handleToggleCard.bind(this) }
+                // onTouchStart={ this.handleTouchStart.bind(this) }
+                // onTouchMove={ this.handleTouchMove.bind(this) }
+                onTouchEnd={ this.handleTouchEnd.bind(this) }
             >
                 <div className="solo-card-container">
                     <Card cardInfo={ this.state.cardInfo}>

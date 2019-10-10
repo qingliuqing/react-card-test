@@ -22,9 +22,9 @@ class Card extends Component {
             typeMaskShow: true,
         };
 
-        this.handleClickPronunciationMask = this.handleClickPronunciationMask.bind(this);
-        this.handleClickTypeMask = this.handleClickTypeMask.bind(this);
-        this.handleTouchEndCapture = this.handleTouchEndCapture.bind(this);
+        // this.handleClickPronunciationMask = this.handleClickPronunciationMask.bind(this);
+        // this.handleClickTypeMask = this.handleClickTypeMask.bind(this);
+        // this.handleTouchEndCapture = this.handleTouchEndCapture.bind(this);
     }
 
     UNSAFE_componentWillReceiveProps() {
@@ -46,7 +46,7 @@ class Card extends Component {
         this.setState((prevState) => ({
             typeMaskShow: !prevState.typeMaskShow
         }));
-        console.log('mask click');
+        // console.log('mask click');
     }
 
     handleTouchEndCapture(e) {
@@ -62,8 +62,8 @@ class Card extends Component {
                     { pronunciationMaskShow ? 
                         (<span
                             className="card-pronunciation-txt-mask"
-                            onTouchEndCapture={ this.handleTouchEndCapture }
-                            onClick={ this.handleClickPronunciationMask }
+                            onTouchEndCapture={ this.handleTouchEndCapture.bind(this) }
+                            onClick={ this.handleClickPronunciationMask.bind(this) }
                         ></span>) : 
                         (<span className="card-pronunciation-txt">
                             { this.props.cardInfo.pronunciation }
@@ -79,8 +79,8 @@ class Card extends Component {
                     { typeMaskShow ? 
                         (<span
                             className="card-type-txt-mask"
-                            onTouchEndCapture={ this.handleTouchEndCapture }
-                            onClick={ this.handleClickTypeMask }
+                            onTouchEndCapture={ this.handleTouchEndCapture.bind(this) }
+                            onClick={ this.handleClickTypeMask.bind(this) }
                         ></span>) : 
                         (<span className="card-type-txt">
                             { this.props.cardInfo.type }

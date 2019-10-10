@@ -5,11 +5,14 @@ import pronounceList from '../../constants/pronounceList.json';
 import './cardList.scss';
 
 class CardListContainer extends Component {
-    // constructor() {
-    //     super();
+    constructor() {
+        super();
+    }
 
-    // }
-    
+    handleClick(i) {
+        this.props.history.push(`/card/${i}`);
+    }
+
     render() {
         return (
             <div
@@ -19,10 +22,13 @@ class CardListContainer extends Component {
                     {
                         pronounceList.map((item, index) => {
                             return (
-                                <div className="card-list-perContainer">
+                                <div
+                                    key={ index }
+                                    className="card-list-perContainer"
+                                    onClick={ this.handleClick.bind(this, index) }>
                                     <Card
-                                        key={ index }
-                                        cardInfo={ item }>
+                                        cardInfo={ item }
+                                        >
                                     </Card>
                                 </div>
                             )
